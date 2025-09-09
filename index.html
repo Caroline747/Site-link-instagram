@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UpTI — Link Bio | Template</title>
+  <meta name="description" content="Template moderno de bio link que gera vendas. HTML, CSS e JS. Pronto para hospedar na Vercel." />
+
+  <!-- FONTS (só referências: substitua se quiser) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0f1724; --card:#0b1220; --accent:#7c3aed; --accent-2:#06b6d4; --muted: #9aa4b2; --glass: rgba(255,255,255,0.05);
+      --text: #e6eef6; --radius:18px; --gap:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue';
+      background: linear-gradient(180deg,#071027 0%, #071726 60%); color:var(--text);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding:28px; display:flex; align-items:flex-start; justify-content:center;
+    }
+
+    /* container */
+    .card{
+      width:100%; max-width:420px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)); border-radius:28px; padding:22px; box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .top{
+      display:flex; gap:12px; align-items:center; margin-bottom:14px;
+    }
+    .avatar{width:84px; height:84px; border-radius:16px; overflow:hidden; flex:0 0 84px; border:3px solid rgba(255,255,255,0.06)}
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .meta{flex:1}
+    .brand{display:flex; align-items:center; gap:8px}
+    .brand h1{font-size:18px; margin:0}
+    .role{color:var(--muted); font-size:13px}
+
+    .bio{margin:10px 0 16px; color:var(--muted); font-size:14px}
+
+    /* CTA primary */
+    .cta-row{display:flex; gap:8px; margin-bottom:12px}
+    .btn{
+      width:100%; display:inline-flex; gap:8px; align-items:center; justify-content:center; padding:12px 14px; border-radius:12px; font-weight:600; cursor:pointer; border:none; outline:none; text-decoration:none;
+      background:linear-gradient(90deg,var(--accent), var(--accent-2)); color:white; box-shadow: 0 6px 18px rgba(124,58,237,0.18);
+    }
+    .btn.secondary{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); font-weight:600}
+
+    /* Links list */
+    .links{display:grid; gap:var(--gap)}
+    .link-item{display:flex; align-items:center; gap:12px; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.02); cursor:pointer; transition:transform .18s ease, box-shadow .18s ease}
+    .link-item:hover{transform:translateY(-6px); box-shadow:0 12px 30px rgba(2,6,23,0.5)}
+    .icon{width:46px; height:46px; border-radius:10px; background:var(--glass); display:inline-flex; align-items:center; justify-content:center; font-weight:700}
+    .link-content{flex:1}
+    .link-title{font-weight:700}
+    .link-desc{font-size:12px; color:var(--muted)}
+
+    /* small row */
+    .row{display:flex; gap:8px; align-items:center}
+
+    /* share / copy */
+    .controls{display:flex; gap:8px; margin-top:14px}
+    .chip{padding:8px 10px; border-radius:999px; font-weight:600; font-size:13px; border:1px solid rgba(255,255,255,0.03); background:transparent; cursor:pointer}
+
+    footer{margin-top:18px; text-align:center; font-size:12px; color:var(--muted)}
+
+    /* dark-mode toggle */
+    .toggle{margin-left:auto; display:inline-flex; align-items:center; gap:8px}
+
+    /* responsive */
+    @media (max-width:420px){ body{padding:18px} .card{padding:18px} }
+
+    /* subtle entrance animation */
+    .card{opacity:0; transform:translateY(8px); animation:enter .6s forwards cubic-bezier(.2,.9,.3,1)}
+    @keyframes enter{to{opacity:1; transform:none}}
+
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="top">
+      <div class="avatar"><img id="profileImg" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="avatar"/></div>
+      <div class="meta">
+        <div class="brand">
+          <h1 id="name">Seu Nome / Marca</h1>
+          <div class="toggle">
+            <label for="dm">Dark</label>
+            <input id="dm" type="checkbox" aria-label="alternar tema">
+          </div>
+        </div>
+        <div class="role" id="role">Especialista em Marketing / Desenvolvimento</div>
+        <div class="bio" id="bio">Transforme seguidores em clientes: links rápidos, WhatsApp direto, ofertas limitadas e prova social.</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" id="whatsappBtn" href="#" target="_blank" rel="noopener">💬 Fale no WhatsApp</a>
+      <!-- ...existing code... -->
+<button class="btn secondary" id="buyBtn" type="button">🛒 Comprar / Oferta</button>
+<!-- ...existing code... -->
+    </div>
+
+    <div class="links" id="links">
+      <!-- Exemplo: personalize ou gere dinamicamente via JSON -->
+      <div class="link-item" data-href="https://example.com/curso" onclick="openLink(event)">
+        <div class="icon">🔥</div>
+        <div class="link-content">
+          <div class="link-title">Treinamento Rápido</div>
+          <div class="link-desc">Aula ao vivo + material — desconto por 24h</div>
+        </div>
+      </div>
+
+      <div class="link-item" data-href="https://example.com/ebook" onclick="openLink(event)">
+        <div class="icon">📘</div>
+        <div class="link-content">
+          <div class="link-title">E-book: Bio que converte</div>
+          <div class="link-desc">Modelos de bios + scripts de vendas</div>
+        </div>
+      </div>
+
+      <div class="link-item" data-href="#newsletter" onclick="openForm(event)">
+        <div class="icon">✉️</div>
+        <div class="link-content">
+          <div class="link-title">Receber novidades</div>
+          <div class="link-desc">Cadastre seu e-mail e ganhe um cupom</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="controls">
+      <button class="chip" id="copyBtn">🔗 Copiar link da bio</button>
+      <button class="chip" id="shareBtn">🚀 Compartilhar</button>
+      <a class="chip" id="analyticsLink" href="#" title="ver analytics">📈 Ver analytics</a>
+    </div>
+
+    <div id="countdown" style="text-align:center; margin:12px 0; font-weight:600; color:#ff0080;">
+  Oferta termina em: <span id="timer">00:30:00</span>
+</div>
+
+    <footer>
+      Criado por UpTI Studio • Hospedagem grátis na Vercel
+    </footer>
+  </div>
+
+  <!-- Modal simples para captura -->
+  <div id="modal" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.6); align-items:center; justify-content:center; z-index:60">
+    <div style="width:90%; max-width:420px; background:linear-gradient(180deg,#0b1220,#071428); padding:18px; border-radius:16px; border:1px solid rgba(255,255,255,0.03)">
+      <h3 style="margin:0 0 8px">Cadastre-se e ganhe 10% OFF</h3>
+      <p style="color:var(--muted); margin:0 0 12px">Vou enviar o cupom por e-mail ou WhatsApp.</p>
+      <form id="leadForm">
+        <input name="name" placeholder="Seu nome" style="width:100%; padding:12px; margin-bottom:8px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text)" required>
+        <input name="email" type="email" placeholder="seu@email.com" style="width:100%; padding:12px; margin-bottom:8px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text)" required>
+        <div style="display:flex; gap:8px">
+          <button class="btn" type="submit" style="flex:1">Receber cupom</button>
+          <button type="button" class="btn secondary" onclick="closeModal()" style="flex:0 0 110px">Fechar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ...existing code... -->
+  <!-- Modal simples para captura -->
+  <div id="modal" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.6); align-items:center; justify-content:center; z-index:60">
+    <!-- ...modal de cadastro... -->
+  </div>
+
+  <!-- Modal de oferta/compra -->
+  <div id="modalOferta" style="display:none; position:fixed; inset:0; background:rgba(2,6,23,0.6); align-items:center; justify-content:center; z-index:61">
+    <div style="width:90%; max-width:420px; background:linear-gradient(180deg,#0b1220,#071428); padding:18px; border-radius:16px; border:1px solid rgba(255,255,255,0.03)">
+      <h3 style="margin:0 0 8px">Oferta Especial!</h3>
+      <p style="color:var(--muted); margin:0 0 12px">Garanta sua vaga ou produto com desconto exclusivo.</p>
+      <button class="btn" id="confirmBuyBtn" style="width:100%; margin-bottom:8px">Ir para Checkout</button>
+      <button type="button" class="btn secondary" onclick="closeModalOferta()" style="width:100%">Fechar</button>
+    </div>
+  </div>
+<!-- ...existing code... -->
+
+  <script src="script.js"></script>
+</body>
+</html>
