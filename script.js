@@ -23,14 +23,6 @@ const waLink = `https://wa.me/${wa}?text=${encodeURIComponent(
 const wBtn = document.getElementById("whatsappBtn");
 wBtn.href = waLink;
 
-// botão comprar: redireciona para checkout (pode ser PagSeguro, Gerencianet, PayPal)
-document.getElementById("buyBtn").addEventListener("click", () => {
-  // exemplo: abrir link de oferta com utm
-  const url =
-    CONFIG.defaultUrl +
-    "/oferta?utm_source=bio&utm_medium=link&utm_campaign=sale";
-  window.open(url, "_blank");
-});
 
 // abrir links dos itens
 function openLink(e) {
